@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  #get 'pages/index'
+  
+  
+  resources :profiles, only: [:edit, :update]
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :users
+  root 'pages#index'
+
+  
+
 
   get 'pages/about_us'
 
